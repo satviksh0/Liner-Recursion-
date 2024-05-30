@@ -3,16 +3,16 @@ import matplotlib.pyplot as plt
 
 data = pd.read_csv('file.csv')
 
-def loss_fn(m, b, points):
+"""def loss_fn(m, b, points):     #this can be used to find the error manually.
     total_error = 0
     for i in range(len(points)):
         x = points.iloc[i].study
         y = points.iloc[i].score
         total_error += (y - (m * x + b)) ** 2
-    return total_error / float(len(points))
+    return total_error / float(len(points))"""
 
-def gradient_descent(m_now, b_now, points, L):
-    m_gradient = 0
+def gradient_descent(m_now, b_now, points, L):    #gradient method gives a better result than simple loss_fn
+    m_gradient = 0                                # L is learning rate
     b_gradient = 0
     n = len(points)
     
@@ -30,7 +30,7 @@ def gradient_descent(m_now, b_now, points, L):
 m = 0
 b = 0
 L = 0.0001   # learning rate
-epochs = 1000
+epochs = 1000 #no. of training samples or iterations at a time.
 
 for i in range(epochs):
     if i % 50 == 0:
